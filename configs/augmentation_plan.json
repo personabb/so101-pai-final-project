@@ -1,0 +1,17 @@
+{
+  "profiles": [
+    "combined"
+  ],
+  "steps": 100000,
+  "seed": 1000,
+  "concurrency": 1,
+  "initial_checkpoint_step": 200000,
+  "initialization": "All models start from the same saved 200000 model; fresh optimizer, resume=false.",
+  "camera0": "Overhead: geometry only for crop/shift/combined; appearance according to profile.",
+  "camera1": "Wrist: never apply geometry. Noise only in combined; appearance according to profile.",
+  "checkpoint_frequency": 20000,
+  "evaluation_samples": 48,
+  "evaluation_seed": 1000,
+  "baseline": "Evaluate original 200000 checkpoint; no matched extra-100000 no-augmentation training control.",
+  "limits": "Offline in-domain stress tests are not unseen-environment or real-robot success rates."
+}

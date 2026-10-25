@@ -1,0 +1,114 @@
+{
+  "profile": "combined",
+  "enabled_types": [
+    "color",
+    "crop",
+    "shift",
+    "blur",
+    "shadow",
+    "noise"
+  ],
+  "individual_profile_probability": "Same per-type probability as combined; disabled types are omitted. No forced p=1.",
+  "kind": "custom experiment using official torchvision and LeRobot transforms",
+  "official_default": "LeRobot v0.6.1 dataset.image_transforms.enable=false",
+  "dataset_image_transforms_enable": false,
+  "camera_mapping": {
+    "observation.images.camera0": "overhead",
+    "observation.images.camera1": "wrist"
+  },
+  "size": [
+    480,
+    640
+  ],
+  "camera0_geometry": {
+    "crop": {
+      "p": 0.5,
+      "scale": [
+        0.9,
+        1.0
+      ],
+      "ratio": [
+        1.3333333333333333,
+        1.3333333333333333
+      ]
+    },
+    "shift": {
+      "p": 0.5,
+      "padding": [
+        19,
+        14
+      ],
+      "mode": "edge pad then random crop; no scale change"
+    }
+  },
+  "camera1_geometry": "Identity: no crop, shift, rotation, or flip",
+  "both_color": {
+    "p": 0.8,
+    "brightness": [
+      0.8,
+      1.2
+    ],
+    "contrast": [
+      0.8,
+      1.2
+    ],
+    "saturation": [
+      0.85,
+      1.15
+    ],
+    "hue": [
+      -0.02,
+      0.02
+    ]
+  },
+  "camera0_blur": {
+    "p": 0.15,
+    "kernel_size": 3,
+    "sigma": [
+      0.1,
+      0.8
+    ]
+  },
+  "camera1_blur": {
+    "p": 0.1,
+    "kernel_size": 3,
+    "sigma": [
+      0.1,
+      0.5
+    ]
+  },
+  "both_shadow": {
+    "p": 0.2,
+    "opacity": [
+      0.05,
+      0.2
+    ],
+    "behavior": "Official RandomShadow randomly darkens OR brightens a smooth vertical band by up to 20%."
+  },
+  "camera1_noise": {
+    "p": 0.2,
+    "std_float01": [
+      0.005,
+      0.015
+    ],
+    "official_std_pixel255": [
+      1.275,
+      3.825
+    ]
+  },
+  "order": [
+    "geometry",
+    "color",
+    "blur",
+    "shadow",
+    "noise on wrist only"
+  ],
+  "temporal_consistency": "One sample shares all parameters and noise realization across leading time dimensions; different samples and cameras draw independently.",
+  "dtype": "Convert uint8 or float32 [0,1] to float32 [0,1], apply transforms, restore original dtype.",
+  "actions_states": "Not transformed; original dataset is never written.",
+  "limitations": [
+    "2D augmentation does not reproduce camera rotation, perspective, or depth parallax.",
+    "Cropping and shifts can remove border content; success must be evaluated on held-out real conditions.",
+    "Probabilities and strengths are custom experiment settings, not official defaults."
+  ]
+}

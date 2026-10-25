@@ -1,0 +1,9 @@
+LeRobot is maintained by Hugging Face and is licensed under Apache-2.0.
+Official source: https://github.com/huggingface/lerobot
+Version used in the recorded experiment: v0.6.1
+The license distributed with that source is reproduced in licenses/LeRobot-LICENSE.txt.
+
+patches/lerobot-v0.6.1-dataset-reader.patch is the v0.6.1 reader-only adaptation
+of the upstream single-column query optimization from LeRobot pull request 4314.
+Upstream change: https://github.com/huggingface/lerobot/pull/4314
+Merged commit: fbb811fca92504439792b97d216f0d00c2268382

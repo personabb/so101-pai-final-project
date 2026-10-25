@@ -1,0 +1,529 @@
+{
+  "comparison": "Original 200000-step model versus combined camera augmentation fine-tuning for 100000 additional steps with a fresh optimizer",
+  "samples": 48,
+  "seed": 1000,
+  "same_indices": true,
+  "same_transformed_input_sha256": true,
+  "metric_units": "ACT normalized action units using this checkpoint's saved official processor",
+  "joint_order": [
+    "shoulder_pan.pos",
+    "shoulder_lift.pos",
+    "elbow_flex.pos",
+    "wrist_flex.pos",
+    "wrist_roll.pos",
+    "gripper.pos"
+  ],
+  "chunk_size": 100,
+  "masking": "action_is_pad excluded from full-chunk metrics; valid action count weighted aggregation",
+  "scope": "In-domain offline stress evaluation using samples from the training demonstrations. This is not a held-out test or a real-robot success-rate estimate.",
+  "limitations": [
+    "No additional-100000-step no-augmentation control was trained; augmentation and extra-training effects are not isolated.",
+    "The robot completed the pick-and-place task. Another trial required repeated grasp attempts before completion. A systematic success-rate evaluation remains future work."
+  ],
+  "aggregates": {
+    "baseline": {
+      "clean": {
+        "normalized_mae": 0.047489123249948424,
+        "normalized_mae_per_joint": [
+          0.03364090680540049,
+          0.05257166375091749,
+          0.03745086735919292,
+          0.06185787235746091,
+          0.04921385354875052,
+          0.05019957567796826
+        ],
+        "normalized_first_action_mae": 0.04480324607963363,
+        "normalized_delta_from_clean": 0.0,
+        "normalized_delta_per_joint": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "2db4ceba05f70fccafd456c8f7e38e93a5e424e2c8b76a73c3f2870042432466",
+        "normalized_mae_increase_over_clean": 0.0
+      },
+      "camera0_shift": {
+        "normalized_mae": 0.1273266863790477,
+        "normalized_mae_per_joint": [
+          0.11668977399591686,
+          0.12177624384814591,
+          0.10275109031826052,
+          0.16354794479098383,
+          0.13907063099923442,
+          0.12012443432174473
+        ],
+        "normalized_first_action_mae": 0.05608988278416089,
+        "normalized_delta_from_clean": 0.12277116295563613,
+        "normalized_delta_per_joint": [
+          0.11481418329111961,
+          0.11533445850388718,
+          0.09414987375476351,
+          0.15032416860168488,
+          0.14401053943588216,
+          0.11799375414647953
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "468075f82a08ab453668297a7ae05bb2e2de15d5d7b6db5f44071d4162ce23e9",
+        "normalized_mae_increase_over_clean": 0.07983756312909929
+      },
+      "camera0_crop": {
+        "normalized_mae": 0.07103886841326537,
+        "normalized_mae_per_joint": [
+          0.0479333463900546,
+          0.07636332093845094,
+          0.06180600600829744,
+          0.09350796409117426,
+          0.07993576039194039,
+          0.06668681265967462
+        ],
+        "normalized_first_action_mae": 0.047561269842036485,
+        "normalized_delta_from_clean": 0.05335473155922298,
+        "normalized_delta_per_joint": [
+          0.037008381806855,
+          0.060032795686383304,
+          0.04446471748470338,
+          0.06470918346151329,
+          0.06715423586527458,
+          0.04675907505060835
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "c0761e19ebf444ec257cf41bb47c6040a50af2f9cab828ab251078d74a082b95",
+        "normalized_mae_increase_over_clean": 0.023549745163316947
+      },
+      "camera0_color": {
+        "normalized_mae": 0.048216726685992084,
+        "normalized_mae_per_joint": [
+          0.035494666536968866,
+          0.05369597246963489,
+          0.038796367131967595,
+          0.0632721995356681,
+          0.04967377535186471,
+          0.0483673790898483
+        ],
+        "normalized_first_action_mae": 0.044185592172046505,
+        "normalized_delta_from_clean": 0.011934485275237966,
+        "normalized_delta_per_joint": [
+          0.009764290803393031,
+          0.012492886116391724,
+          0.008878758297803182,
+          0.01593072112676396,
+          0.010896863025107601,
+          0.013643392281968302
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "c5aece13d1f19c1f13d7a6807530483f767ccbbf87e27959539cf678d677a6db",
+        "normalized_mae_increase_over_clean": 0.0007276034360436598
+      },
+      "camera0_blur": {
+        "normalized_mae": 0.05213496984293812,
+        "normalized_mae_per_joint": [
+          0.03905058664226748,
+          0.05749503255810076,
+          0.040647680465196075,
+          0.06620807526758378,
+          0.05559099971365596,
+          0.05381744441082463
+        ],
+        "normalized_first_action_mae": 0.04453699564328417,
+        "normalized_delta_from_clean": 0.023526540223103316,
+        "normalized_delta_per_joint": [
+          0.020045046460389397,
+          0.02128734703395718,
+          0.01681874958395036,
+          0.029901157647992452,
+          0.02461562189471823,
+          0.028491318717612273
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "7ea88a599e826423b662149f4a0000b8bd417e44853c4c61e31b3fcf81622e10",
+        "normalized_mae_increase_over_clean": 0.004645846592989694
+      },
+      "camera0_shadow": {
+        "normalized_mae": 0.047484193027429844,
+        "normalized_mae_per_joint": [
+          0.03341912063726164,
+          0.05311714105270694,
+          0.03873270105086108,
+          0.0622592944710702,
+          0.04823928210057372,
+          0.04913761885210551
+        ],
+        "normalized_first_action_mae": 0.04500810084735147,
+        "normalized_delta_from_clean": 0.006995483774233463,
+        "normalized_delta_per_joint": [
+          0.006961284332221156,
+          0.006500686880147669,
+          0.005699337969385071,
+          0.009032271481409221,
+          0.006721322270254686,
+          0.007057999711982983
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "6fc4cedd2583c416cd60e00cf3b33088888f3801f0011703e749310e556e96b9",
+        "normalized_mae_increase_over_clean": -4.930222518580163e-06
+      },
+      "camera1_color": {
+        "normalized_mae": 0.05557368052957854,
+        "normalized_mae_per_joint": [
+          0.041899397911847054,
+          0.06153788149118063,
+          0.04101710991100824,
+          0.07206335415227104,
+          0.054164245665713755,
+          0.06276009404545058
+        ],
+        "normalized_first_action_mae": 0.046639618476749294,
+        "normalized_delta_from_clean": 0.026316767874531844,
+        "normalized_delta_per_joint": [
+          0.019876529105301532,
+          0.02742243298433357,
+          0.01814330794778788,
+          0.03554693231603748,
+          0.022007268610949315,
+          0.03490413628278132
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "b5f1e089a0617d41525a793c74d36f6d004540fe756575eb8c8410857a8a32c3",
+        "normalized_mae_increase_over_clean": 0.008084557279630117
+      },
+      "camera1_blur": {
+        "normalized_mae": 0.04779571392184321,
+        "normalized_mae_per_joint": [
+          0.034483711033181215,
+          0.05399375705692144,
+          0.038826197447309106,
+          0.06171320662330727,
+          0.04917553651381613,
+          0.048581874856524127
+        ],
+        "normalized_first_action_mae": 0.04410615410759217,
+        "normalized_delta_from_clean": 0.006553786137282802,
+        "normalized_delta_per_joint": [
+          0.00476183996676517,
+          0.006156620217828687,
+          0.0048870719632810936,
+          0.008436437987178524,
+          0.0068324790910180245,
+          0.00824826759762531
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "a2d7f22bf55bff2530f3759ba43ad95a705701a4b3cf2e7aef000fa57740ac24",
+        "normalized_mae_increase_over_clean": 0.0003065906718947853
+      },
+      "camera1_noise": {
+        "normalized_mae": 0.05105070146913552,
+        "normalized_mae_per_joint": [
+          0.03708511724749163,
+          0.05729714779715304,
+          0.04164233391787039,
+          0.06592429153611178,
+          0.050672730694264874,
+          0.0536825876219214
+        ],
+        "normalized_first_action_mae": 0.045291041916546725,
+        "normalized_delta_from_clean": 0.01081195307659545,
+        "normalized_delta_per_joint": [
+          0.008946993825301789,
+          0.01200941267558167,
+          0.009260108728664758,
+          0.013140566813613816,
+          0.010794444734348357,
+          0.010720191682062305
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "5c5108550816c0689252a03820fa3e5b3917f5cdab462619ecf8be0ef2149e03",
+        "normalized_mae_increase_over_clean": 0.003561578219187095
+      },
+      "camera1_shadow": {
+        "normalized_mae": 0.053949868248266454,
+        "normalized_mae_per_joint": [
+          0.03871882825936239,
+          0.058002228178008756,
+          0.043530576032511675,
+          0.06930454766710929,
+          0.052204047654601377,
+          0.061938981698005255
+        ],
+        "normalized_first_action_mae": 0.04467536298195935,
+        "normalized_delta_from_clean": 0.017942148422045626,
+        "normalized_delta_per_joint": [
+          0.01344789322490705,
+          0.01723893323444842,
+          0.013112700318459276,
+          0.02371599097623052,
+          0.013965735293787886,
+          0.026171637484440617
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "f09e143cf4c6ed96b84d0205fee445a0cc0b6a3f8911a9d6f0de1aabec3a2a62",
+        "normalized_mae_increase_over_clean": 0.00646074499831803
+      }
+    },
+    "combined": {
+      "clean": {
+        "normalized_mae": 0.04066809089677119,
+        "normalized_mae_per_joint": [
+          0.034556718930770725,
+          0.04350143898142179,
+          0.02791882816320999,
+          0.05547556891521428,
+          0.04329251830563357,
+          0.03926347208437679
+        ],
+        "normalized_first_action_mae": 0.04100610081028814,
+        "normalized_delta_from_clean": 0.0,
+        "normalized_delta_per_joint": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "2db4ceba05f70fccafd456c8f7e38e93a5e424e2c8b76a73c3f2870042432466",
+        "normalized_mae_increase_over_clean": 0.0
+      },
+      "camera0_shift": {
+        "normalized_mae": 0.04126711642832576,
+        "normalized_mae_per_joint": [
+          0.03424189523749925,
+          0.044072991315837313,
+          0.03013847333661701,
+          0.057772048442206646,
+          0.04346085741482709,
+          0.03791643282296724
+        ],
+        "normalized_first_action_mae": 0.037939751818258725,
+        "normalized_delta_from_clean": 0.0167160791643206,
+        "normalized_delta_per_joint": [
+          0.012593003438642905,
+          0.016539183225071936,
+          0.013681700639760666,
+          0.023573616373464164,
+          0.015630839493147385,
+          0.018278131815836547
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "468075f82a08ab453668297a7ae05bb2e2de15d5d7b6db5f44071d4162ce23e9",
+        "normalized_mae_increase_over_clean": 0.0005990255315545742
+      },
+      "camera0_crop": {
+        "normalized_mae": 0.04079570224333298,
+        "normalized_mae_per_joint": [
+          0.034038037148102655,
+          0.043315877705784905,
+          0.028406934153178187,
+          0.055473397020668,
+          0.043627097367812895,
+          0.03991287006445125
+        ],
+        "normalized_first_action_mae": 0.0401778748491779,
+        "normalized_delta_from_clean": 0.010056078874152758,
+        "normalized_delta_per_joint": [
+          0.00877980810223988,
+          0.00904629745736471,
+          0.007431578724751527,
+          0.013462642643555619,
+          0.010571262069507358,
+          0.011044884247497453
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "c0761e19ebf444ec257cf41bb47c6040a50af2f9cab828ab251078d74a082b95",
+        "normalized_mae_increase_over_clean": 0.00012761134656179285
+      },
+      "camera0_color": {
+        "normalized_mae": 0.04073648729327276,
+        "normalized_mae_per_joint": [
+          0.03460377786022159,
+          0.0435582227928331,
+          0.028091323369080164,
+          0.05542167448444966,
+          0.04337308322196782,
+          0.039370842031084236
+        ],
+        "normalized_first_action_mae": 0.04104710517114856,
+        "normalized_delta_from_clean": 0.003646648358278133,
+        "normalized_delta_per_joint": [
+          0.0029026322285525736,
+          0.0033656846888860956,
+          0.002854294905456552,
+          0.004558793185608556,
+          0.004176149989679917,
+          0.004022335151485107
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "c5aece13d1f19c1f13d7a6807530483f767ccbbf87e27959539cf678d677a6db",
+        "normalized_mae_increase_over_clean": 6.839639650157298e-05
+      },
+      "camera0_blur": {
+        "normalized_mae": 0.04069152345570773,
+        "normalized_mae_per_joint": [
+          0.03408801814178877,
+          0.043903140311518866,
+          0.027909888343548243,
+          0.055521391126557226,
+          0.04334439829422695,
+          0.03938230451660632
+        ],
+        "normalized_first_action_mae": 0.04037520605682706,
+        "normalized_delta_from_clean": 0.006248385384545258,
+        "normalized_delta_per_joint": [
+          0.004912431107216996,
+          0.006243280819706962,
+          0.0052252648158666,
+          0.008373056660714783,
+          0.006767781592858768,
+          0.005968497310907437
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "7ea88a599e826423b662149f4a0000b8bd417e44853c4c61e31b3fcf81622e10",
+        "normalized_mae_increase_over_clean": 2.3432558936539727e-05
+      },
+      "camera0_shadow": {
+        "normalized_mae": 0.04046025612283056,
+        "normalized_mae_per_joint": [
+          0.03421271407803454,
+          0.04335113802210084,
+          0.027713814033349833,
+          0.055265224484684204,
+          0.04341402881603867,
+          0.03880461730277529
+        ],
+        "normalized_first_action_mae": 0.04118510675875263,
+        "normalized_delta_from_clean": 0.002550425532356185,
+        "normalized_delta_per_joint": [
+          0.002642100541641604,
+          0.002475359446211734,
+          0.0019857422058382466,
+          0.0029261783099345487,
+          0.0026540610687126767,
+          0.0026191116217983003
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "6fc4cedd2583c416cd60e00cf3b33088888f3801f0011703e749310e556e96b9",
+        "normalized_mae_increase_over_clean": -0.00020783477394063082
+      },
+      "camera1_color": {
+        "normalized_mae": 0.04152603758535187,
+        "normalized_mae_per_joint": [
+          0.035602145399798106,
+          0.043550351157115294,
+          0.028670280262313788,
+          0.056096109756986985,
+          0.04421397213916349,
+          0.041023366796733594
+        ],
+        "normalized_first_action_mae": 0.041608969092420824,
+        "normalized_delta_from_clean": 0.008394380631967522,
+        "normalized_delta_per_joint": [
+          0.007334216162629162,
+          0.008692722629416769,
+          0.00589396853579341,
+          0.010419159040609745,
+          0.007653894575403737,
+          0.010372322847952307
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "b5f1e089a0617d41525a793c74d36f6d004540fe756575eb8c8410857a8a32c3",
+        "normalized_mae_increase_over_clean": 0.0008579466885806838
+      },
+      "camera1_blur": {
+        "normalized_mae": 0.04096050457343866,
+        "normalized_mae_per_joint": [
+          0.03511747634681196,
+          0.044262677828567576,
+          0.0281050223516163,
+          0.055596156432558434,
+          0.04315818111457729,
+          0.039523513366500396
+        ],
+        "normalized_first_action_mae": 0.04051982347543041,
+        "normalized_delta_from_clean": 0.003943968028062224,
+        "normalized_delta_per_joint": [
+          0.0027846661893085665,
+          0.003979751675551259,
+          0.0028861791612634687,
+          0.005051756090247032,
+          0.0041101671210963964,
+          0.00485128793090662
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "a2d7f22bf55bff2530f3759ba43ad95a705701a4b3cf2e7aef000fa57740ac24",
+        "normalized_mae_increase_over_clean": 0.00029241367666747037
+      },
+      "camera1_noise": {
+        "normalized_mae": 0.04094337836398975,
+        "normalized_mae_per_joint": [
+          0.03527739063048913,
+          0.0438306979891493,
+          0.028515975625463562,
+          0.05524997336390052,
+          0.04452644737586813,
+          0.03825978519906783
+        ],
+        "normalized_first_action_mae": 0.04082846256723214,
+        "normalized_delta_from_clean": 0.0054407311767900755,
+        "normalized_delta_per_joint": [
+          0.0037658192815967924,
+          0.005173432068829978,
+          0.004055774291866245,
+          0.007004185106750563,
+          0.005917363835173917,
+          0.006727812476522957
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "5c5108550816c0689252a03820fa3e5b3917f5cdab462619ecf8be0ef2149e03",
+        "normalized_mae_increase_over_clean": 0.0002752874672185615
+      },
+      "camera1_shadow": {
+        "normalized_mae": 0.041189780971353666,
+        "normalized_mae_per_joint": [
+          0.03560532552992874,
+          0.04378381318701594,
+          0.02852992421348593,
+          0.05583415077752941,
+          0.04322924520649226,
+          0.0401562269136697
+        ],
+        "normalized_first_action_mae": 0.041130679866505995,
+        "normalized_delta_from_clean": 0.005188028040013224,
+        "normalized_delta_per_joint": [
+          0.004110134207547139,
+          0.005080567383975899,
+          0.0038335437425973703,
+          0.006778534114400884,
+          0.004894259962257864,
+          0.00643112882930019
+        ],
+        "valid_action_steps": 4462,
+        "samples": 48,
+        "input_sha256": "f09e143cf4c6ed96b84d0205fee445a0cc0b6a3f8911a9d6f0de1aabec3a2a62",
+        "normalized_mae_increase_over_clean": 0.0005216900745824773
+      }
+    }
+  }
+}

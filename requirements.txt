@@ -1,0 +1,4 @@
+# Install the official source checkout with the included reader patch first.
+# See README for platform-specific PyTorch installation.
+lerobot[feetech,async,dataset]==0.6.1
+Pillow>=10
